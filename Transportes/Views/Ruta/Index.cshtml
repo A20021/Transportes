@@ -1,0 +1,71 @@
+﻿@using Transportes.core.Entidades
+@model List<Ruta>
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Rutas</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+                        <a href="@Url.Action("Registro", "Ruta")" class="btn btn-primary">Agregar nuevo</a>
+
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Descripcion</th>
+                                        <th>Id del estado</th>
+                                        <th>Id del pasajero</th>
+                                        <th>Id del destino</th>
+                                        <th>Id de la partida</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    @foreach (Ruta r in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @r.Id
+                                            </td>
+                                            <td>
+                                                @r.Descripcion
+                                            </td>
+                                            <td>
+                                                @r.Estado.Id
+                                            </td>
+                                            <td>
+                                                @r.Pasajero.Id
+                                            </td>
+                                            <td>
+                                                @r.Destino.Id
+                                            </td>
+                                            <td>
+                                                @r.Partida.Id
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("Registro", "Ruta", new {id = r.Id})" class="btn btn-primary"><i class="fa fa-edit"></i> Editar</a>
+                                                <a class="btn btn-danger"><i class="fa fa-trash-o"></i> Eliminar</a>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

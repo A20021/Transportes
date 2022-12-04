@@ -1,0 +1,59 @@
+﻿@using Transportes.core.Entidades
+@model List<Pasajero>
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Pasajeros</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+                        <a href="@Url.Action("Registro", "Pasajero")" class="btn btn-primary">Agregar nuevo</a>
+
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Id del boleto</th>
+                                        <th>Numero de asiento</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    @foreach (Pasajero p in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @p.Id
+                                            </td>
+                                            <td>
+                                                @p.Boleto.Id
+                                            </td>
+                                            <td>
+                                                @p.NumeroAsiento
+                                            </td>
+                                            <td>
+                                                <a href="@Url.Action("Registro", "Pasajero", new {id = p.Id})" class="btn btn-primary"><i class="fa fa-edit"></i> Editar</a>
+                                                <a class="btn btn-danger"><i class="fa fa-trash-o"></i> Eliminar</a>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

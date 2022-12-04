@@ -1,0 +1,75 @@
+﻿@using Transportes.core.Entidades
+@model List<Autobus>
+
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Autobuses</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+
+                        <!--Esto-->
+                        <a href="@Url.Action("Registro", "Autobus", new {id = 0})" class="btn btn-primary">Agregar nuevo</a>
+
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Marca</th>
+                                        <th>Color</th>
+                                        <th>Placa</th>
+                                        <th>Matricula</th>
+                                        <th>Id de la ruta</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    @foreach (Autobus a in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @a.Id
+                                            </td>
+                                            <td>
+                                                @a.Marca
+                                            </td>
+                                            <td>
+                                                @a.Color
+                                            </td>
+                                            <td>
+                                                @a.Placa
+                                            </td>
+                                            <td>
+                                                @a.Matricula
+                                            </td>
+                                            <td>
+                                                @a.Ruta.Id
+                                            </td>
+                                            <td>
+                                                <!--Esto-->
+                                                <a href="@Url.Action("Registro", "Autobus", new {id = a.Id})" class="btn btn-primary"><i class="fa fa-edit"></i> Editar</a>
+                                                <a onclick="eliminar(@a.Id)" class="btn btn-danger"><i class="fa fa-trash-o"></i> Eliminar</a>
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Esto-->
+<script src="~/Content/js/Transportes/autobus.js"></script>

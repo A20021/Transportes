@@ -1,0 +1,27 @@
+﻿<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Registro de Boleto</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form action="@Url.Action("Guardar", "Boleto")">
+                            <input type="hidden" class="form-control" name="id" value="@Model.Id"/>
+                            <div class="form-group">
+                                <label>Numero de Boleto :</label>
+                                <input class="form-control" name="numeroBoleto" value="@if(Model.Id !=0) {@Model.NumeroBoleto}"/>
+
+                            </div>
+                            <button class="btn btn-success" type="submit">Guardar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

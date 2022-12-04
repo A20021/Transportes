@@ -1,0 +1,36 @@
+﻿<div id="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Registro del Autobus</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <form action="@Url.Action("Guardar", "Autobus")">
+                            <!--Esto-->
+                            <input type="hidden" class="form-control" name="id" value="@Model.Id"/>
+                            <div class="form-group">
+                                <!--Esto-->
+                                <label>Marca:</label>
+                                <input class="form-control" name="marca" value="@if (Model.Id !=0) {@Model.Marca}"/>
+                                <label>Color:</label>
+                                <input class="form-control" name="color" value="@if (Model.Id !=0) {@Model.Color}"/>
+                                <label>Placa:</label>
+                                <input class="form-control" name="placa" value="@if (Model.Id !=0) {@Model.Placa}"/>
+                                <label>Matricula:</label>
+                                <input class="form-control" name="matricula" value="@if (Model.Id !=0) {@Model.Matricula}"/>
+                                <label>Ruta:</label>
+                                <input class="form-control" name="idRuta" value="@if (Model.Id !=0) {@Model.Ruta.Id}"/>
+                            </div>
+                            <button class="btn btn-success" type="submit">Guardar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
