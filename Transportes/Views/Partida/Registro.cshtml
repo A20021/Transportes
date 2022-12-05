@@ -11,10 +11,11 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <form action="@Url.Action("Guardar", "Partida")">
+                            <input type="hidden" class="form-control" name="id" value="@Model.Id" />
                             <div class="form-group">
                                 <label>Id municipio: </label>
-                                <input class="form-control" name="idMunicipio" />
-                                
+                                <input class="form-control" name="idMunicipio" value="@if(Model.Id != 0) {@Model.Municipio.Id}"/>
+
                             </div>
                             <button class="btn btn-success" type="submit">Guardar</button>
                         </form>

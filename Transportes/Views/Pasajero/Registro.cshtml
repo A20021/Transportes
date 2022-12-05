@@ -11,12 +11,13 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <form action="@Url.Action("Guardar", "Pasajero")">
+                            <input type="hidden" class="form-control" name="id" value="@Model.Id" />
                             <div class="form-group">
                                 <label>Id boleto: </label>
-                                <input class="form-control" name="idBoleto" />
+                                <input class="form-control" name="idBoleto" value="@if(Model.Id != 0) {@Model.Boleto.Id}"/>
                                 <label>Numero Asiento: </label>
-                                <input class="form-control" name="numeroAsiento" />
-                                
+                                <input class="form-control" name="numeroAsiento" value="@if(Model.Id !=0) {@Model.NumeroAsiento}"/>
+
                             </div>
                             <button class="btn btn-success" type="submit">Guardar</button>
                         </form>

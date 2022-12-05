@@ -11,12 +11,13 @@
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <form action="@Url.Action("Guardar", "Operador")">
+                            <input type="hidden" class="form-control" name="id" value="@Model.Id" />
                             <div class="form-group">
                                 <label>Nombre: </label>
-                                <input class="form-control" name="nombre" />
+                                <input class="form-control" name="nombre" value="@if(Model.Id != 0) {@Model.Nombre}"/>
                                 <label>Edad: </label>
-                                <input class="form-control" name="edad" />
-                                
+                                <input class="form-control" name="edad" value="@if(Model.Id != 0) {@Model.Edad}"/>
+
                             </div>
                             <button class="btn btn-success" type="submit">Guardar</button>
                         </form>
